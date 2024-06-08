@@ -1,9 +1,16 @@
 <template>
   <div class="p-4">
     <Loader :loading="loading" />
+    <div v-if="!categories.length && !loading" class="text-red-500 text-center">
+      <p>Failed to load categories</p>
+    </div>
     <div v-if="categories" class="max-w-7xl mx-auto">
       <div v-for="category in categories" :key="category.name" class="mb-8">
-        <h2 class="text-3xl font-bold mb-4 capitalize">{{ category.name }}</h2>
+        <h2 class="text-3xl font-bold mb-4 capitalize">
+          {{ category.name }}
+          <!--          <small class="ml-2">{{ category.articles.length }}</small>-->
+        </h2>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <ArticleCard
             v-for="article in category.articles"
@@ -30,11 +37,6 @@ import Loader from '../components/Loader.vue'
 
 export default defineComponent({
   name: 'HomePage',
-  methods: {
-    l() {
-      return l
-    },
-  },
   components: {
     Loader,
     ArticleCard,
