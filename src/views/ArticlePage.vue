@@ -14,7 +14,7 @@
         By {{ article.author }} on {{ new Date(article.published_at).toLocaleString() }}
       </p>
       <img :src="article.image_urls[0]" alt="Article Image" class="w-full h-64 object-cover mb-4" />
-      <p class="leading-relaxed">{{ article.content }}</p>
+      <div class="leading-relaxed" v-html="sanitizedContent"></div>
     </div>
   </div>
 </template>
@@ -23,6 +23,7 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import axios from '../axios-config.ts'
 import { useRoute } from 'vue-router'
+import DOMPurify from 'dompurify'
 
 interface Article {
   _id: string
@@ -40,12 +41,14 @@ export default defineComponent({
     const article = ref<Article | null>(null)
     const loading = ref<boolean>(true)
     const error = ref<string | null>(null)
+    const sanitizedContent = ref<string | null>(null)
 
     const fetchArticle = async () => {
       loading.value = true
       try {
         const response = await axios.get<Article>(`/articles/${route.params.category}/${route.params.articleId}`)
         article.value = response.data
+        sanitizedContent.value = DOMPurify.sanitize(article.value.content)
       } catch (err) {
         error.value = 'Failed to load article'
       } finally {
@@ -59,6 +62,7 @@ export default defineComponent({
       article,
       loading,
       error,
+      sanitizedContent,
     }
   },
 })
