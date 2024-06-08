@@ -16,8 +16,6 @@ Science Data Admin is an administrative panel for managing science articles aggr
 - Real-time statistics and summaries
 - Detailed article view with sanitization
 
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -55,8 +53,6 @@ npm run build
 npm run preview
 ```
 
----
-
 ## Usage
 
 ### Accessing the Admin Panel
@@ -73,8 +69,6 @@ npx vue-tsc --noEmit
 
 ### Environment Variables
 Make sure to set the necessary environment variables for connecting to backend services.
-
----
 
 ## Contributing
 
