@@ -2,10 +2,6 @@
 
 ⚠️ Work in progress.
 
-Here's the updated description with the link added:
-
----
-
 ## Description
 
 Science Data Admin is an administrative panel for managing science articles aggregated from various sources ([Science Data Service](https://github.com/nbursa/science-data-service)). Built with Vue 3 and TypeScript, and powered by Vite for fast builds and hot module replacement, this admin panel provides a robust and efficient way to oversee content, including article management, user authentication, and future plans for discussion forums.
