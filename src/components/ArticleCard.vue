@@ -6,14 +6,15 @@
     <img :src="article.image_urls[0]" alt="Article Image" class="w-full h-32 object-cover mb-2" />
     <div class="p-4 flex flex-col flex-grow justify-between">
       <h3 class="text-lg font-bold mb-2">{{ article.title }}</h3>
-      <p class="">{{ article.content.substring(0, 100) }}...</p>
+      <div v-html="sanitizedContent" class="text-sm"></div>
       <small class="text-xs self-end">Click to read more...</small>
     </div>
   </router-link>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { computed, defineComponent, PropType } from 'vue'
+import DOMPurify from 'dompurify'
 
 export default defineComponent({
   name: 'ArticleCard',
@@ -26,6 +27,22 @@ export default defineComponent({
       type: String,
       required: true,
     },
+  },
+  setup(props) {
+    // const sanitizedContent = computed(() => {
+    //   return DOMPurify.sanitize(props.article.content.substring(0, 100) + '...')
+    // })
+    const sanitizedContent = computed(() => {
+      const rawContent = props.article.content.substring(0, 300) + '...'
+      // console.log('Raw content:', rawContent)
+      // const sanitized = DOMPurify.sanitize(rawContent)
+      // console.log('Sanitized content:', sanitized)
+      return DOMPurify.sanitize(rawContent)
+    })
+
+    return {
+      sanitizedContent,
+    }
   },
 })
 </script>
