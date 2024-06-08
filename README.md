@@ -1,9 +1,81 @@
-# Vue 3 + TypeScript + Vite
+# Science Data Admin - Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+⚠️ Work in progress.
 
-## Recommended Setup
+## Description
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+Science Data Admin is an administrative panel for managing science articles aggregated from various sources(). Built with Vue 3 and TypeScript, and powered by Vite for fast builds and hot module replacement, this admin panel provides a robust and efficient way to oversee content, including article management, user authentication, and future plans for discussion forums.
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+## Features
+
+- Admin panel for managing science articles
+- Built with Vue 3 and TypeScript
+- Uses Vite for fast builds and hot module replacement
+- Article fetching and categorization
+- Dynamic loading of more articles
+- Real-time statistics and summaries
+- Detailed article view with sanitization
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 14.x or higher
+- npm 6.x or higher
+
+### Setup
+
+#### Clone the repository
+```bash
+git clone https://github.com/nbursa/science-data-admin.git
+cd science-data-admin
+```
+
+#### Install dependencies
+```bash
+npm install
+```
+
+### Running the Application
+
+#### Start the development server
+```bash
+npm run dev
+```
+
+#### Build for production
+```bash
+npm run build
+```
+
+#### Preview the production build
+```bash
+npm run preview
+```
+
+---
+
+## Usage
+
+### Accessing the Admin Panel
+After starting the development server, you can access the admin panel at:
+```
+http://localhost:5173
+```
+
+### Type Checking
+Use `vue-tsc` for type checking:
+```bash
+npx vue-tsc --noEmit
+```
+
+### Environment Variables
+Make sure to set the necessary environment variables for connecting to backend services.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
